@@ -1,0 +1,415 @@
+/* Remove body styles, as they are now in index.css */
+/* ===== Profile Dropdown Menu ===== */
+.btn-remove-cart {
+  background-color: #d62828;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  /* margin-left: 5px;
+  margin-right: 5px; */
+  width: 50px;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.btn-remove-cart:hover {
+  background-color: #b81d1d;
+  transform: scale(1.05);
+}
+
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.profile-icon {
+  background-color: var(--button-bg);
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.profile-menu:hover .profile-icon {
+  transform: scale(1.1);
+}
+
+.profile-name {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: var(--card-bg);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  min-width: 160px;
+  z-index: 999;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--button-bg);
+  color: white;
+}
+
+.logout-link {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ====== THEME VARIABLES ====== */
+:root {
+  --bg-color: #f0f4f8;
+  --text-color: #000;
+  --card-bg: #ffffff;
+  --nav-bg: #0077b6;
+  --button-bg: #0077b6;
+  --button-text: #fff;
+}
+
+[data-theme="dark"] {
+  --bg-color: #0d1117;
+  --text-color: #e6edf3;
+  --card-bg: #161b22;
+  --nav-bg: #010409;
+  --button-bg: #238636;
+  --button-text: #ffffff;
+}
+
+/* ====== Apply global colors ====== */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Reuse variables in components */
+nav {
+  background-color: var(--nav-bg);
+}
+
+.form-container,
+.library-section,
+.book-card,
+.profile-container {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+/* ===== Form Container (Login/Register) ===== */
+.form-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  margin-top: 50px;
+  max-width: 400px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* Margin top to push it down from the header */
+  margin: 40px auto 0 auto;
+}
+
+.form-container h2 {
+  color: #3eb1f8;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-container input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px; /* Added margin-bottom */
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Added box-sizing */
+}
+
+.form-container button {
+  width: 100%; /* Make button full-width */
+  padding: 12px;
+  background-color: #009dff;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 30%;
+  margin-left: 40px;
+  font-size: 1rem; /* Added font-size */
+}
+
+.form-container button:hover {
+  background-color: #0099cc;
+}
+
+.form-container p { /* Message for login/register */
+  color: white;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+/* ===== NEW: Main Header ===== */
+.main-header {
+  position: fixed; /* Fix header to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background: #072ac8; /* Dark blue, slightly transparent */
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #bfc8d0;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome-msg {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.cart-status {
+  font-weight: 600;
+  background-color: #1e96fc;
+  padding: 8px 12px;
+  height: 10%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+/* Base button style for nav */
+.nav-btn {
+  padding: 8px 16px;
+  margin-top: 20px;
+  margin-right:20Px;
+  margin-bottom: 20px;
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.nav-btn.logout-btn {
+  background-color: #d90429; /* Red for logout */
+}
+.nav-btn.logout-btn:hover {
+  background-color: #b30321;
+}
+
+/* Login/Register buttons */
+.nav-links a.nav-btn {
+  background-color: #009dff;
+}
+.nav-links a.nav-btn:hover {
+  background-color: #008ae6;
+}
+
+
+/* ===== NEW: Page Container (for Library) ===== */
+.page-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto; /* Top margin to clear header */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-msg {
+  text-align: center;
+  background-color: #1e96fc;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.library-section {
+  margin-bottom: 30px;
+}
+
+.library-section h2 {
+  color: #3eb1f8;
+  border-bottom: 2px solid #3eb1f8;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.library-section p {
+  color: #ccc;
+}
+
+/* ===== UPDATED: Book List & Card Styles ===== */
+.book-list, .cart-list {
+  display: grid;
+  gap: 15px;
+  /* Make cards single column on small screens */
+  grid-template-columns: 1fr;
+}
+
+.book-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex; /* Use flexbox */
+  align-items: flex-start; /* Align items to the top */
+  gap: 15px; /* Space between image and details */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* NEW: Book Cover Image */
+.book-cover-img {
+  width: 100px; /* Fixed width */
+  height: 150px; /* Fixed height */
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+/* NEW: Wrapper for info and button */
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%; /* Take remaining space */
+  min-height: 150px; /* Match image height */
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; /* Add space above button */
+}
+
+.book-info strong {
+  font-size: 1.1rem;
+  color: rgb(14, 13, 13);
+  margin-bottom: 3px;
+}
+
+.book-info span {
+  font-size: 0.9rem;
+  color: #483c3c;
+  font-style: italic;
+}
+
+/* Add/Remove Button Styles */
+.book-card button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+
+  width: 100%; /* Make button full width within details */
+}
+
+/* NEW: Responsive query for wider screens */
+@media (min-width: 768px) {
+  .book-list {
+    /* Show two columns on medium screens */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.btn-add-cart {
+  background-color: #2a9d8f;
+  color: white;
+  width: 120px;
+  
+}
+.btn-add-cart:hover {
+  background-color: #258a7f;
+}
+
+.btn-remove-cart {
+  background-color: #e76f51;
+  color: rgb(247, 242, 242);
+  
+}
+.btn-remove-cart:hover {
+  background-color: #d06346;
+}
+
